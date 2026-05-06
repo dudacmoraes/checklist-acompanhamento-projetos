@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Checkpoint — Jornada de Projetos</title>
+
+        <link rel="stylesheet" href="css/styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="container">
+
+            <!-- HEADER -->
+            <div class="header">
+                <h1>Status Report — Acompanhamento de Projetos</h1>
+                <p>Visualização de fases, marcos e entregáveis em um fluxo genérico de projeto</p>
+                <p style="font-size:12px; opacity:.6; margin-top:10px;">
+                    Projeto demonstrativo com fluxos e dados simulados para fins de portfólio
+                </p>
+
+                <div class="controls">
+                    <button class="btn-mode active-std" id="btn-std" onclick="setMode('standard')">Fluxo Base</button>
+                    <button class="btn-mode" id="btn-adv" onclick="setMode('advisory')">Fluxo Avançado</button>
+                </div>
+            </div>
+
+            <!-- DASHBOARD -->
+            <div class="dashboard-panel">
+                <div class="progress-header">
+                    <span>Progresso Geral</span>
+                    <span id="progress-text">0 de 0 etapas</span>
+                </div>
+
+                <div class="progress-track">
+                    <div class="progress-fill" id="progressBar"></div>
+                </div>
+
+                <div class="progress-percentage" id="progressPercent">0%</div>
+            </div>
+
+            <!-- TIMELINE (RENDERIZADA VIA JS) -->
+            <div class="timeline" id="timeline">
+                <!--
+                    As fases (.phase),
+                    listas (.checklist),
+                    itens (.check-item)
+                    e sub-itens serão inseridos dinamicamente via JavaScript
+                -->
+            </div>
+
+        </div>
+
+        <!-- MODAL -->
+        <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="modalTitle">Detalhes</h3>
+                    <button class="close-modal" onclick="closeModalDirect()">×</button>
+                </div>
+                <div class="modal-body" id="modalBody"></div>
+            </div>
+        </div>
+
+        <script src="js/fases.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>
